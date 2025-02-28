@@ -10,7 +10,7 @@ import HTMLIcon from "@/assets/skills/html.svg?react";
 import CSSIcon from "@/assets/skills/css.svg?react";
 import TSIcon from "@/assets/skills/typescript.svg?react";
 import TailwindIcon from "@/assets/skills/ui_lib/Tailwind.svg?react";
-import ShadcnIcon from "@/assets/skills/ui_lib/Shadcn.svg";
+import ShadcnIcon from "@/assets/skills/ui_lib/Shadcn.svg"; 
 import NextIcon from "@/assets/skills/next.svg?react";
 import ReactQueryIcon from "@/assets/skills/api/react-query-logo.png";
 import ZustandIcon from "@/assets/skills/state_managers/zustand.svg?react";
@@ -32,7 +32,7 @@ const PROJECTS = [
       <ReactIcon />,
       <NextIcon />,
     ],
-    haveTest: null,  
+    haveTest: undefined,  
 },
 
 {
@@ -48,7 +48,7 @@ const PROJECTS = [
       <img src={ReactQueryIcon} alt="react query" />,
       <TailwindIcon />,
     ],
-    haveTest: null,  
+    haveTest: undefined,  
 },
 {
   image: FastReactPizza, // تصویر سیستم مدیریت رستوران
@@ -63,7 +63,7 @@ const PROJECTS = [
     <ReduxIcon />,
     <TailwindIcon />,
   ],
-  haveTest: null,
+  haveTest: undefined,
 }
 ,
 
