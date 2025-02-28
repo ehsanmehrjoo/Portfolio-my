@@ -73,7 +73,7 @@ const PROJECTS = [
     title: "Shop",
     text: "a Shop website usign fakestoreapi.com data build with Next.js and have different kinds of rendering (SSR, SSG, CSR). actions like add a product to cart is handled by zustand and cart page is handled with react query to get and cache data(CSR). the home page and shop page is static(SSG) and single product page is server side render (SSR). and with some tricks the website feels fast (top loading skeletons), and static routes feel dynamic (progress bar loading)",
     liveLink: "https://jorfi-shop.vercel.app/",
-    gitHubLink: "https://github.com/hossein-jorfi/Shop-Next.js",
+    gitHubLink: "#",
     skills: [
       <HTMLIcon />,
       <CSSIcon />,
