@@ -10,7 +10,7 @@ const HomeButtons = () => {
 
   return (
     <div className="flex flex-col sm:flex-row gap-2 md:gap-4">
-      <a target="_blank" download={true} href="/ehsan mehrjo cv.pdf">
+      <a target="_blank" download={true} href="/public/ehsan mehrjo.pdf">
         <ButtonType1>Download CV</ButtonType1>
       </a>
       <DividerLine />
