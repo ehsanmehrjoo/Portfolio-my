@@ -23,7 +23,7 @@ const PROJECTS = [
     image: Clientweb, // تصویر بخش کاربری پروژه
     title: "The Wild Oasis - User Panel",
     text: "The user panel of The Wild Oasis, built with Next.js, React, and Tailwind CSS, provides a seamless booking experience. Users can browse available rooms, filter by location, price, and amenities, and make reservations in real time. The interface is optimized for speed with server-side rendering (SSR) and static site generation (SSG), ensuring a smooth user experience.",
-    liveLink: "https://the-wild-oasis-website.vercel.app/", 
+    liveLink: "https://the-wild-oasis-client-three.vercel.app/", 
     gitHubLink: "https://github.com/ehsanmehrjoo/the-wild-oasis-client",
     skills: [
       <HTMLIcon />,
