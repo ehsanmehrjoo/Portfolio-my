@@ -18,6 +18,9 @@ module.exports = {
       },
     },
     extend: {
+      fontFamily: {
+        vazir: ['Vazir', 'sans-serif'],
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },

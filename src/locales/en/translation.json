@@ -1,0 +1,48 @@
+{
+    "name": "Ehsan Mehrjo",
+    "role": "Front End Developer",
+    "companyName": "The Wild Oasis",
+    "position": "Full-Stack Developer",
+    "description": "Designed and engineered a comprehensive hotel booking platform, including both a client-facing website (built with Next.js) and an admin dashboard. The platform enables real-time reservation and room management for over 150 daily active users.",
+    "skills": "- Next.js - React - JavaScript - Supabase - CSS - Tailwind CSS - React Query - React Router - Authentication - API Optimization - Dynamic Filtering - UI/UX Improvements - CSS-in-JS (Styled Components)",
+    "liveProject": "The project is live! Explore it here :",
+    "projectLink": "Project Link",
+    "infoText": "Click the photo to view it on a bigger size.",
+    "about": {
+      "paragraph1": "As a front-end developer, I go beyond just fetching and displaying data. While CRUD operations are essential, what truly makes a front-end developer valuable is their ability to create seamless, efficient, and visually appealing user experiences. A website is often the face of a brand, and I strive to ensure that every project I work on delivers both functionality and a strong visual identity.",
+      "paragraph2": "Throughout my experience, I've developed and optimized applications like The Wild Oasis, a hotel booking platform with authentication for over 1000 users, and Fast React Pizza, a restaurant order management system handling hundreds of daily transactions. Leveraging technologies like React, JavaScript, and Redux Toolkit, I ensure scalability, performance, and maintainability. Additionally, I emphasize clean and efficient code to create products that are both high-performing and enjoyable to use.",
+      "paragraph3": "I believe in smart problem-solving. Instead of relying on excessive libraries, I carefully analyze the task at hand and implement the most efficient solutions. Whether it's optimizing API calls, improving state management, or ensuring responsive design, I focus on writing structured, maintainable code that enhances both user experience and developer collaboration."
+    },
+
+      "projects": {
+    "sectionTitle": "Projects",
+    "infoText": "Click the photo to view it on a bigger size.",
+    "items": [
+      {
+        "title": "The Wild Oasis - User Panel",
+        "description": "The user panel of The Wild Oasis, built with Next.js, React, and Tailwind CSS, provides a seamless booking experience. Users can browse available rooms, filter by location, price, and amenities, and make reservations in real time. The interface is optimized for speed with server-side rendering (SSR) and static site generation (SSG), ensuring a smooth user experience.",
+        "liveLink": "https://the-wild-oasis-client-three.vercel.app/",
+        "gitHubLink": "https://github.com/ehsanmehrjoo/the-wild-oasis-client"
+      },
+      {
+        "title": "The Wild Oasis - Admin Panel",
+        "description": "The admin panel of The Wild Oasis is built using React, JavaScript, and Supabase. It provides real-time room management, user authentication, and dashboard analytics. Admins can manage bookings, update room availability, and view reports. Security best practices, lazy loading, and API optimizations ensure smooth performance.",
+        "liveLink": "https://thewildoasis-1.netlify.app/",
+        "gitHubLink": "https://github.com/ehsanmehrjoo/TheWildOasis"
+      },
+      {
+        "title": "Fast React Pizza - Restaurant Management System",
+        "description": "Built a responsive pizza ordering system with React, handling 200+ daily orders with real-time updates. Integrated dynamic cart functionality, improved order accuracy by 30%, and ensured seamless backend communication via REST APIs with 99.9% uptime. Optimized performance using React hooks and advanced state management, supporting up to 1,000 concurrent users. Designed an intuitive UI/UX, increasing usability and satisfaction by 30%.",
+        "liveLink": "https://fast-react-pizza-co-2.netlify.app/",
+        "gitHubLink": "https://github.com/ehsanmehrjoo/Fast-React-Pizza"
+      },
+      {
+        "title": "Shop",
+        "description": "A Shop website using fakestoreapi.com data built with Next.js and features SSR, SSG, and CSR. Actions like adding a product to the cart are handled by Zustand, and the cart page is managed with React Query (CSR). The homepage and shop page use static generation (SSG), while the single product page uses server-side rendering (SSR). With loading skeletons and progress indicators, the site feels fast and dynamic.",
+        "liveLink": "https://jorfi-shop.vercel.app/",
+        "gitHubLink": "#"
+      }
+    ]
+  }
+  }
+  

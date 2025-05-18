@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { useTranslation } from "react-i18next";
 
 // components
 import {
@@ -15,6 +16,7 @@ import CSSIcon from "@/assets/skills/css.svg?react";
 import ReduxIcon from "@/assets/skills/redux.svg?react";
 import TailwindIcon from "@/assets/skills/ui_lib/Tailwind.svg?react";
 import NextjsIcon from "@/assets/skills/ui_lib/next.svg?react";
+
 const ITEMS = [
   {
     id: 0,
@@ -45,12 +47,19 @@ const ITEMS = [
     id: 5,
     icon: <TailwindIcon />,
     name: "Tailwindcss",
-  }
+  },
 ];
 
 const SkillItems = () => {
+  const { i18n } = useTranslation();
+  const isRtl = i18n.language === "fa";
+
   return (
-    <div className="flex md:flex-col gap-1 md:justify-between h-full md:ml-2 mt-4 md:mt-0 items-center md:items-start ">
+    <div
+      className={`flex md:flex-col gap-1 md:justify-between h-full md:mt-0 items-center md:items-start ${
+        isRtl ? "md:mr-2" : "md:ml-2"
+      } mt-4`}
+    >
       {ITEMS.map((item) => (
         <SkillItem key={item.id} {...item} />
       ))}
