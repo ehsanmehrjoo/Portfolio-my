@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { PiTranslateDuotone } from "react-icons/pi";
+import { IoLanguageOutline } from "react-icons/io5";
 
 const languages = [
   { code: "en", label: "English" },
@@ -28,23 +29,24 @@ const LanguageSwitcher: React.FC = () => {
       <div className="relative">
         <button
           onClick={() => setOpen((prev) => !prev)}
-          className="text-white text-3xl hover:text-purple-400"
+          className="text-white text-3xl hover:text-purple-400 transition-colors duration-300"
           aria-label="Toggle language switcher"
         >
-          <PiTranslateDuotone />
+          <PiTranslateDuotone className="transform hover:scale-110 transition-transform duration-200" />
         </button>
 
         {open && (
-          <div className="absolute right-0 mt-2 bg-white text-black rounded shadow-md py-1 w-24">
+          <div className="absolute right-0 mt-2 bg-gradient-to-b from-white to-purple-50 text-black rounded-xl shadow-xl py-2 w-32 animate-in fade-in slide-in-from-top-2 duration-200 animate-out fade-out slide-out-to-top-2 duration-150">
             {languages.map(({ code, label }) => (
               <button
                 key={code}
                 onClick={() => changeLanguage(code)}
-                className={`block w-full text-left px-4 py-1 hover:bg-gray-100 ${
-                  i18n.language === code ? "text-purple-600 font-semibold" : ""
+                className={`flex items-center w-full text-left px-4 py-2 text-sm hover:bg-purple-100 hover:text-purple-700 transition-colors duration-150 ${
+                  i18n.language === code ? "text-purple-700 font-semibold bg-purple-200" : ""
                 }`}
                 aria-current={i18n.language === code ? "true" : undefined}
               >
+                <IoLanguageOutline className="mr-2 text-purple-500" />
                 {label}
               </button>
             ))}
