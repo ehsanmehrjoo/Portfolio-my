@@ -13,6 +13,10 @@ const LanguageSwitcher: React.FC = () => {
   const [open, setOpen] = useState(false);
 
   const changeLanguage = (lng: string) => {
+    if (i18n.language === lng) {
+      setOpen(false);
+      return;
+    }
     i18n.changeLanguage(lng).then(() => {
       window.location.reload();
     });
