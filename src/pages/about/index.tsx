@@ -1,59 +1,90 @@
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import ProfileImage from "@/assets/profile.png";
+import { CSSProperties } from "react"; // Import CSSProperties for type safety
+
+// Animation variants for staggered fade-in effect
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.5,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut",
+    },
+  },
+};
 
 const About = () => {
   const { t, i18n } = useTranslation();
   const isFarsi = i18n.language === "fa";
 
+  // Define text styles with consistent shape
+  const textStyles: CSSProperties = {
+    direction: isFarsi ? "rtl" : "ltr",
+    textAlign: isFarsi ? "right" : "left",
+    whiteSpace: isFarsi ? "pre-line" : "normal", // Provide default value
+  };
+
   return (
-    <div
-      className={`p-3 text-2xl font-medium flex flex-col gap-6 text-primary sm:mt-8 ${
-        isFarsi ? "font-vazir text-right rtl" : "font-sans text-left ltr"
+    <motion.section
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      className={`p-6 sm:p-8 max-w-5xl mx-auto text-primary font-medium ${
+        isFarsi ? "font-vazir rtl" : "font-sans ltr"
       }`}
     >
+      {/* Profile section with image and introduction */}
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.25, delay: 0.25 }}
-        className={`flex flex-col lg:flex-row gap-5 items-center ${
+        variants={itemVariants}
+        className={`flex flex-col lg:flex-row gap-8 items-center justify-center ${
           isFarsi ? "lg:flex-row-reverse" : ""
         }`}
       >
-        <img
+        <motion.img
           src={ProfileImage}
-          className="w-72 h-72 rounded-full border-8"
-          alt="Profile"
+          alt={t("about.profileAlt")}
+          className="w-64 h-64 sm:w-80 sm:h-80 rounded-full border-8 border-primary/20 shadow-lg object-cover"
+          whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
         />
-        <p style={
-    isFarsi
-      ? { whiteSpace: "pre-line", direction: "rtl", textAlign: "right" }
-      : undefined
-  }>{t("about.paragraph1")}</p>
+        <p
+          className="text-lg sm:text-xl lg:text-2xl leading-relaxed"
+          style={textStyles}
+        >
+          {t("about.paragraph1")}
+        </p>
       </motion.div>
 
+      {/* Additional paragraphs */}
       <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.25, delay: 0.75 }}
+        variants={itemVariants}
+        className="mt-6 text-lg sm:text-xl lg:text-2xl leading-relaxed"
+        style={textStyles}
       >
-        <p style={
-       isFarsi
-      ? { whiteSpace: "pre-line", direction: "rtl", textAlign: "right" }
-      : undefined
-  }>{t("about.paragraph2")}</p>
+        {t("about.paragraph2")}
       </motion.p>
 
       <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.25, delay: 1.25 }}
+        variants={itemVariants}
+        className="mt-6 text-lg sm:text-xl lg:text-2xl leading-relaxed"
+        style={textStyles}
       >
-       <p style={ isFarsi ? { whiteSpace: "pre-line", direction: "rtl", textAlign: "right" }: undefined
-  }>
-    {t("about.paragraph3")}</p> 
+        {t("about.paragraph3")}
       </motion.p>
-    </div>
+    </motion.section>
   );
 };
 
