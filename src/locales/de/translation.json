@@ -6,7 +6,8 @@
   "description": "Entwurf und Entwicklung einer umfassenden Hotelbuchungsplattform, einschließlich einer kundenorientierten Website (gebaut mit Next.js) und eines Admin-Dashboards. Die Plattform ermöglicht die Verwaltung von Reservierungen und Zimmern in Echtzeit für über 150 täglich aktive Benutzer.",
   "skills": "- Next.js - React - JavaScript - Supabase - CSS - Tailwind CSS - React Query - React Router - Authentifizierung - API-Optimierung - Dynamische Filterung - UI/UX-Verbesserungen - CSS-in-JS (Styled Components)",
   "liveProject": "Das Projekt ist live! Hier ansehen:",
-  "projectLink": "Projektlink",
+  "projectLinkAdmin":  "Projekt Link-Administrator",
+    "projectLinkUser": "Project Link-Benutzer",
   "infoText": "Klicken Sie auf das Foto, um es in größerer Ansicht zu sehen.",
   "about": {
     "paragraph1": "Als Frontend-Entwickler gehe ich über das reine Abrufen und Anzeigen von Daten hinaus. Während CRUD-Operationen wichtig sind, macht die Fähigkeit, nahtlose, effiziente und visuell ansprechende Benutzererlebnisse zu schaffen, einen wertvollen Frontend-Entwickler aus. Eine Website ist oft das Gesicht einer Marke, und ich bemühe mich, sicherzustellen, dass jedes Projekt, an dem ich arbeite, sowohl Funktionalität als auch eine starke visuelle Identität bietet.",

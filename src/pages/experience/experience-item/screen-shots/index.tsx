@@ -17,7 +17,22 @@ const ScreenShots = () => {
           href="https://thewildoasis-1.netlify.app/"
           className="underline text-blue-600 hover:text-blue-800"
         >
-          {t("projectLink")}
+
+          {t("projectLinkAdmin")}
+
+        </a>
+
+         ,,
+
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://the-wild-oasis-client-three.vercel.app/"
+          className="underline text-blue-600 hover:text-blue-800"
+        >
+
+          {t("projectLinkUser")}
+
         </a>
       </p>
       <div

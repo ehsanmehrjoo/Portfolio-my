@@ -1,82 +1,81 @@
 import { motion } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
-import MobilleMenu from "./mobille-menu";
+import MobileMenu from "./mobille-menu";
 import i18n from "@/i18n";
+import { menuItems } from "./menuItems";
 
+// Interface for MenuItem props
+interface MenuItemProps {
+  title: string;
+  to: string;
+  className?: string;
+}
+
+// Animation variants for reusable animations
+const linkVariants = {
+  initial: { opacity: 0, x: -50 },
+  animate: { opacity: 1, x: 0, transition: { duration: 0.5, ease: "easeOut" } },
+};
+
+const underlineVariants = {
+  initial: { width: 0, opacity: 0 },
+  animate: { width: "100%", opacity: 1, transition: { duration: 0.4, ease: "easeInOut" } },
+  hover: { width: "100%", transition: { duration: 0.3, ease: "easeInOut" } },
+};
 
 const MenuItems = () => {
-  const menuItemsEn = [
-  { id: 0, title: "Home", to: "/" },
-  { id: 1, title: "Skills", to: "/skills" },
-  { id: 2, title: "Experience", to: "/experience" },
-  { id: 3, title: "About", to: "/about" },
-  { id: 4, title: "Projects", to: "/projects" }
-];
+  const isRtl = i18n.language === "fa"; // Check language direction
 
-const menuItemsFa = [
-  { id: 5, title: "خانه", to: "/" },
-  { id: 6, title: "مهارت‌ها", to: "/skills" },
-  { id: 7, title: "تجربه", to: "/experience" },
-  { id: 8, title: "درباره", to: "/about" },
-  { id: 9, title: "پروژه‌ها", to: "/projects" }
-];
-const menuItemsDe = [
-  { id: 10, title: "Hause", to: "/" },
-  { id: 11, title: "Fähigkeiten", to: "/skills" },
-  { id: 11, title: "Erfahrung", to: "/experience" },
-  { id: 12, title: "Über mich", to: "/about" },
-  { id: 13, title: "Projekte", to: "/projects" }
-];MobilleMenu
- 
-const menuItems =
-  i18n.language === "fa"? menuItemsFa: i18n.language === "de"? menuItemsDe : menuItemsEn;
   return (
-    <div className="text-primary">
-     <div
-  className={`text-2xl sm:flex gap-5 ml-3 w-full hidden ${
-    i18n.language === "fa" ? "flex-row-reverse text-right" : ""
-  }`}
->
-  {menuItems.map((item) => (
-    <MenuItem key={item.id} {...item} />
-  ))}
-</div>
+    <nav className="text-primary font-medium">
+      {/* Desktop menu */}
+      <div
+        className={`hidden sm:flex gap-6 ml-3 w-full items-center ${
+          isRtl ? "flex-row-reverse" : "flex-row"
+        }`}
+      >
+        {menuItems.map((item) => (
+          <MenuItem key={item.id} {...item} />
+        ))}
+      </div>
 
-      <MobilleMenu />
-    </div>
+      {/* Mobile menu */}
+      <MobileMenu />
+    </nav>
+  );
+};
+
+// Menu item component
+const MenuItem = ({ title, to, className }: MenuItemProps) => {
+  const { pathname } = useLocation();
+  const isActive = to === pathname;
+
+  return (
+    <motion.div
+      variants={linkVariants}
+      initial="initial"
+      animate="animate"
+      className="relative group"
+      whileHover={{ scale: 1.05 }} // Add subtle hover effect
+    >
+      <Link
+        to={to}
+        className={`px-2 py-1 text-lg transition-colors duration-300 hover:text-primary-dark ${
+          isActive ? "text-primary-dark font-semibold" : ""
+        } ${className}`}
+      >
+        {title}
+        {/* Underline with animation */}
+        <motion.span
+          variants={underlineVariants}
+          initial="initial"
+          animate={isActive ? "animate" : "initial"}
+          whileHover="hover"
+          className="absolute left-0 bottom-0 h-[2px] bg-primary"
+        />
+      </Link>
+    </motion.div>
   );
 };
 
 export default MenuItems;
-
-const MenuItem = ({
-  title,
-  to,
-  className,
-}: {
-  title: string;
-  to: string;
-  className?: string;
-}) => {
-  const { pathname } = useLocation();
-  return (
-    <motion.span
-      initial={{ opacity: 0, x: -50 }}
-      animate={{ opacity: 1, x: 0, transition: { duration: 0.5 } }}
-      transition={{ duration: 0.5 }}
-      className="relative group inline-block"
-    >
-      <Link className={`${className} `} to={to}>
-        {title}
-        <motion.span
-          initial={{ opacity: 0, x: -100 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, ease: "anticipate" }}
-          className={`absolute left-0 -bottom-1 bg-primary h-[2px] group-hover:w-full transition-[width] ease-in-out duration-300 ${
-            to === pathname ? "w-full" : "w-0"
-          }`}
-        ></motion.span>
-      </Link>
-    </motion.span>
-  );
-};

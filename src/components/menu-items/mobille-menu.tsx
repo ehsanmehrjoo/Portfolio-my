@@ -1,12 +1,52 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { MENU_ITEMS } from "./contants";
 import { Link, useLocation } from "react-router-dom";
 import { Cross2Icon } from "@radix-ui/react-icons";
 import { Button } from "@/components/ui/button";
+import { menuItems } from "./menuItems";
 
-const MobilleMenu = () => {
+// Interface for MenuItem props
+interface MenuItemProps {
+  title: string;
+  to: string;
+  className?: string;
+  onClose: () => void;
+  custom?: number; // Add custom prop for Framer Motion
+}
+
+// Animation variants for mobile menu and close button
+const menuVariants = {
+  initial: { x: "100%" },
+  animate: { x: 0, transition: { duration: 0.5, ease: "easeOut" } },
+};
+
+const closeButtonVariants = {
+  initial: { x: 100, opacity: 0 },
+  animate: { x: 0, opacity: 1, transition: { duration: 0.4, ease: "easeOut" } },
+};
+
+const MenuItemVariants = {
+  initial: { opacity: 0, x: -50 },
+  animate: (custom: number) => ({
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut",
+      delay: custom * 0.1, // Stagger delay based on index
+    },
+  }),
+};
+
+const underlineVariants = {
+  initial: { width: 0, opacity: 0 },
+  animate: { width: "100%", opacity: 1, transition: { duration: 0.4, ease: "easeInOut" } },
+};
+
+const MobileMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  // Open menu and lock body scroll
   const openHandler = () => {
     setIsOpen(true);
     setTimeout(() => {
@@ -14,6 +54,8 @@ const MobilleMenu = () => {
     }, 250);
     window.scrollTo(0, 0);
   };
+
+  // Close menu and restore body scroll
   const closeHandler = () => {
     setIsOpen(false);
     document.body.style.overflow = "auto";
@@ -21,31 +63,45 @@ const MobilleMenu = () => {
 
   return (
     <div className="flex sm:hidden justify-end">
-      <div onClick={openHandler}>
+      {/* Menu toggle icon */}
+      <div onClick={openHandler} className="p-2">
         <MenuIcon />
       </div>
+
       {isOpen && (
         <>
+          {/* Mobile menu overlay */}
           <motion.div
-            className="w-scree h-[100dvh] absolute top-0 left-0 bg-slate-950 bg-opacity-90 backdrop-blur-lg flex flex-col gap-1 items-center overflow-auto z-10"
-            initial={{ right: "100vh" }}
-            animate={{ right: "0" }}
+            variants={menuVariants}
+            initial="initial"
+            animate="animate"
+            className="fixed inset-0 bg-slate-950 bg-opacity-90 backdrop-blur-lg flex flex-col gap-4 items-center justify-center z-50 overflow-auto"
           >
-            {MENU_ITEMS.map((item) => (
-              <MenuItem onClose={closeHandler} key={item.id} {...item} />
+            {menuItems.map((item, index) => (
+              <MenuItem
+                key={item.id}
+                {...item}
+                onClose={closeHandler}
+                // Stagger animation for menu items
+                custom={index}
+                
+              />
             ))}
           </motion.div>
+
+          {/* Close button */}
           <motion.div
-            className="absolute top-3 z-20"
-            initial={{ right: "-100px" }}
-            animate={{ right: "12px" }}
+            variants={closeButtonVariants}
+            initial="initial"
+            animate="animate"
+            className="fixed top-4 right-4 z-50"
           >
             <Button
-              className="rounded-full text-black bg-gray-300 w-8 h-8"
+              className="rounded-full bg-gray-300 text-black hover:bg-gray-400 transition-colors w-10 h-10"
               size="icon"
               onClick={closeHandler}
             >
-              <Cross2Icon width={20} height={20} />
+              <Cross2Icon width={24} height={24} />
             </Button>
           </motion.div>
         </>
@@ -54,65 +110,54 @@ const MobilleMenu = () => {
   );
 };
 
-export default MobilleMenu;
-
-const MenuItem = ({
-  title,
-  to,
-  className,
-  onClose,
-}: {
-  title: string;
-  to: string;
-  className?: string;
-  onClose: () => void;
-}) => {
+// Menu item component
+const MenuItem = ({ title, to, className, onClose, custom }: MenuItemProps) => {
   const { pathname } = useLocation();
+  const isActive = to === pathname;
+
   return (
-    <motion.span
-      initial={{ opacity: 0, x: -50 }}
-      animate={{ opacity: 1, x: 0, transition: { duration: 0.5 } }}
-      transition={{ duration: 1 }}
-      className="relative w-full h-full text-7xl flex justify-center items-center z-[10000]"
+    <motion.div
+      variants={MenuItemVariants}
+      initial="initial"
+      animate="animate"
+      custom={custom} // Pass custom prop to Framer Motion
+      className="relative w-full text-center"
     >
       <Link
-        onClick={onClose}
-        className={`${className} relative w-full text-center`}
         to={to}
+        onClick={onClose}
+        className={`block py-4 text-4xl font-semibold text-white hover:text-primary transition-colors ${
+          isActive ? "text-primary" : ""
+        } ${className}`}
       >
         {title}
+        {/* Underline effect */}
         <motion.span
-          initial={{ opacity: 0, x: -100 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, ease: "anticipate" }}
-          className={`absolute left-0 bottom-0 bg-primary h-[2px] group-hover:w-full transition-[width] ease-in-out duration-300 ${
-            to === pathname ? "w-full" : "w-0"
-          }`}
-        ></motion.span>
+          variants={underlineVariants}
+          initial="initial"
+          animate={isActive ? "animate" : "initial"}
+          className="absolute left-1/2 -translate-x-1/2 bottom-0 h-[3px] bg-primary w-0"
+        />
       </Link>
-    </motion.span>
+    </motion.div>
   );
 };
 
+// Menu icon component
 const MenuIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width={25}
-    height={25}
+    width={28}
+    height={28}
     viewBox="0 0 256 256"
+    className="text-gray-200 hover:text-primary transition-colors"
   >
     <path
-      fill="#e2e8f0"
-      strokeMiterlimit={10}
+      fill="currentColor"
       d="M5 8a2 2 0 1 0 0 4h40a2 2 0 1 0 0-4zm0 15a2 2 0 1 0 0 4h40a2 2 0 1 0 0-4zm0 15a2 2 0 1 0 0 4h40a2 2 0 1 0 0-4z"
-      fontFamily="none"
-      fontSize="none"
-      fontWeight="none"
-      style={{
-        mixBlendMode: "normal",
-      }}
-      textAnchor="none"
       transform="scale(5.12)"
     />
   </svg>
 );
+
+export default MobileMenu;
