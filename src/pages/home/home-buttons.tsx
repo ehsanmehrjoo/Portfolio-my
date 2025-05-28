@@ -37,7 +37,7 @@ const menuItems =
 
   return (
     <div className="flex flex-col sm:flex-row gap-2 md:gap-4">
-      <a target="_blank" download={true} href={`${isDe ?  "/public/ehsan mehrjo-De.pdf" : "/public/ehsan mehrjo-En.pdf"}`}>
+      <a target="_blank" download={true} href={`${isDe ?  "/ehsan mehrjo-De.pdf" : "/ehsan mehrjo-En.pdf"}`}>
  
         <ButtonType1>Download CV</ButtonType1>
       </a>
