@@ -2,9 +2,9 @@
 import React, { useState, useEffect } from "react";
 import { Sun, Moon, Code, Sparkles } from "lucide-react";
 
-const ProgrammerDay: React.FC = () => {
-  const [dark, setDark] = useState<boolean>(false);
-  const [mounted, setMounted] = useState<boolean>(false);
+const ProgrammerDay = () => {
+  const [dark, setDark] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   // Initialize dark mode after mount
   useEffect(() => {
@@ -28,7 +28,7 @@ const ProgrammerDay: React.FC = () => {
   if (!mounted) return null; // Avoid SSR mismatch
 
   const toggleMusic = () => {
-    const audio = document.getElementById("celebrateMusic") as HTMLAudioElement | null;
+    const audio = document.getElementById("celebrateMusic");
     if (!audio) return;
     if (audio.paused) audio.play();
     else audio.pause();
@@ -120,7 +120,7 @@ celebrate();`}
               { title: '2-Hour Game Jam', desc: 'Create a small game within a time limit', accent: 'from-rose-400 to-orange-300' },
               { title: 'Refactor Cleanup', desc: 'Optimize an old piece of code', accent: 'from-emerald-400 to-cyan-300' },
               { title: 'Algorithm Challenge', desc: 'Solve a fun programming problem', accent: 'from-violet-400 to-indigo-300' },
-            ].map((it) => (
+            ].map(it => (
               <article
                 key={it.title}
                 className={`rounded-2xl p-5 bg-gradient-to-br ${it.accent} shadow-lg text-white hover:-translate-y-1 transition-transform`}
@@ -143,8 +143,7 @@ celebrate();`}
             <pre className="bg-gradient-to-r from-slate-100 to-white dark:from-slate-800 dark:to-slate-900 p-4 rounded font-mono text-sm overflow-auto">
 {`const shout = name => \`✨ Happy Programmer's Day, \${name}! \`; 
 
-console.log(shout('Our Team'));
-`}
+console.log(shout('Our Team'));`}
             </pre>
           </div>
         </section>
