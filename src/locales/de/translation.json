@@ -1,0 +1,49 @@
+{
+  "name": "Ehsan Mehrjo",
+  "role": "Frontend-Entwickler",
+  "companyName": "The Wild Oasis",
+  "position": "Full-Stack-Entwickler",
+  "description": "Entwurf und Entwicklung einer umfassenden Hotelbuchungsplattform, einschließlich einer kundenorientierten Website (gebaut mit Next.js) und eines Admin-Dashboards. Die Plattform ermöglicht die Verwaltung von Reservierungen und Zimmern in Echtzeit für über 150 täglich aktive Benutzer.",
+  "skills": "- Next.js - React - JavaScript - Supabase - CSS - Tailwind CSS - React Query - React Router - Authentifizierung - API-Optimierung - Dynamische Filterung - UI/UX-Verbesserungen - CSS-in-JS (Styled Components)",
+  "liveProject": "Das Projekt ist live! Hier ansehen:",
+  "projectLinkAdmin":  "Projekt Link-Administrator",
+    "projectLinkUser": "Project Link-Benutzer",
+  "infoText": "Klicken Sie auf das Foto, um es in größerer Ansicht zu sehen.",
+  "about": {
+    "paragraph1": "Als Frontend-Entwickler gehe ich über das reine Abrufen und Anzeigen von Daten hinaus. Während CRUD-Operationen wichtig sind, macht die Fähigkeit, nahtlose, effiziente und visuell ansprechende Benutzererlebnisse zu schaffen, einen wertvollen Frontend-Entwickler aus. Eine Website ist oft das Gesicht einer Marke, und ich bemühe mich, sicherzustellen, dass jedes Projekt, an dem ich arbeite, sowohl Funktionalität als auch eine starke visuelle Identität bietet.",
+    "paragraph2": "Im Laufe meiner Erfahrung habe ich Anwendungen wie The Wild Oasis entwickelt und optimiert, eine Hotelbuchungsplattform mit Authentifizierung für über 1000 Benutzer, sowie Fast React Pizza, ein Bestellsystem für Restaurants mit hunderten täglichen Transaktionen. Durch den Einsatz von Technologien wie React, JavaScript und Redux Toolkit stelle ich Skalierbarkeit, Leistung und Wartbarkeit sicher. Außerdem lege ich großen Wert auf sauberen und effizienten Code, um Produkte zu schaffen, die sowohl leistungsfähig als auch angenehm zu bedienen sind.",
+    "paragraph3": "Ich glaube an intelligentes Problemlösen. Anstatt sich auf umfangreiche Bibliotheken zu verlassen, analysiere ich die jeweilige Aufgabe sorgfältig und implementiere die effizientesten Lösungen. Ob Optimierung von API-Aufrufen, Verbesserung des Zustandsmanagements oder Gewährleistung eines responsiven Designs – ich konzentriere mich darauf, strukturierten, wartbaren Code zu schreiben, der sowohl das Benutzererlebnis als auch die Zusammenarbeit der Entwickler verbessert."
+  }
+,
+"projects": {
+    "sectionTitle": "Projekte",
+    "infoText": "Klicke auf das Bild, um es in voller Größe zu sehen.",
+    "items": [
+      {
+        "title": "The Wild Oasis – Benutzerbereich",
+        "description": "Der Benutzerbereich von The Wild Oasis wurde mit Next.js, React und Tailwind CSS entwickelt und bietet ein reibungsloses Buchungserlebnis. Nutzer können verfügbare Zimmer durchsuchen, nach Standort, Preis und Ausstattung filtern und in Echtzeit reservieren. Das Interface wurde durch SSR und SSG für Geschwindigkeit optimiert.",
+        "liveLink": "https://the-wild-oasis-client-three.vercel.app/",
+        "gitHubLink": "https://github.com/ehsanmehrjoo/the-wild-oasis-client"
+      },
+      {
+        "title": "The Wild Oasis – Admin-Bereich",
+        "description": "Das Admin-Panel von The Wild Oasis wurde mit React, JavaScript und Supabase entwickelt. Es ermöglicht die Verwaltung von Zimmern, Benutzer-Authentifizierung und das Anzeigen von Analytics in Echtzeit. Admins können Buchungen verwalten, Verfügbarkeiten aktualisieren und Berichte einsehen. API-Optimierung, Lazy Loading und Sicherheitskonzepte sorgen für eine stabile Performance.",
+        "liveLink": "https://thewildoasis-1.netlify.app/",
+        "gitHubLink": "https://github.com/ehsanmehrjoo/TheWildOasis"
+      },
+      {
+        "title": "Fast React Pizza – Restaurant-Management-System",
+        "description": "Ein responsives Pizza-Bestellsystem, das mit React erstellt wurde und über 200 tägliche Bestellungen in Echtzeit verarbeitet. Es verfügt über einen dynamischen Warenkorb, REST-API-Kommunikation und React Hooks zur Leistungsoptimierung. Unterstützt bis zu 1.000 gleichzeitige Benutzer und verbessert die Usability um 30 % durch ein intuitives UI/UX.",
+        "liveLink": "https://fast-react-pizza-co-2.netlify.app/",
+        "gitHubLink": "https://github.com/ehsanmehrjoo/Fast-React-Pizza"
+      },
+      {
+        "title": "Shop",
+        "description": "Ein Shop mit Daten von fakestoreapi.com, entwickelt mit Next.js. Unterstützt SSR, SSG und CSR. Aktionen wie 'In den Warenkorb legen' werden mit Zustand verwaltet. Die Startseite und Shopseite nutzen SSG, während Produktseiten SSR verwenden. Lade-Skelette und Fortschrittsleisten verbessern das Nutzererlebnis.",
+        "liveLink": "https://jorfi-shop.vercel.app/",
+        "gitHubLink": "#"
+      }
+    ]
+  }
+  
+}
