@@ -7,12 +7,14 @@ import { motion } from "framer-motion";
 import GitHubIcon from "../../assets/social-media/github.svg?react";
 import LinkedinIcon from "../../assets/social-media/linkedin.svg?react";
 import TelegramIcon from "../../assets/social-media/telegram.svg?react";
+import { Phone } from "lucide-react";
 
 const icon_props = {
   width: 34,
   height: 34,
   fill: "#b292ff",
 };
+
 const SocialMedia = () => {
   return (
     <motion.div
@@ -28,6 +30,9 @@ const SocialMedia = () => {
       </IconWrapper>
       <IconWrapper path="https://github.com/ehsanmehrjoo">
         <GitHubIcon {...icon_props} width={39} height={39} />
+      </IconWrapper>
+       <IconWrapper path="tel:+989016091623">
+        <Phone width={30} height={30} color="#b292ff" />
       </IconWrapper>
     </motion.div>
   );
